@@ -1,0 +1,26 @@
+{
+  "name": "kanban-app",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Trello-like Kanban board for teams (Node.js + React/Vite + Tailwind, JSON file storage)",
+  "workspaces": [
+    "backend",
+    "frontend",
+    "e2e"
+  ],
+  "scripts": {
+    "dev": "concurrently -n api,web -c blue,magenta \"npm run dev -w backend\" \"npm run dev -w frontend\"",
+    "start": "npm run build -w frontend && npm run start -w backend",
+    "build": "npm run build -w frontend",
+    "seed": "npm run seed -w backend",
+    "test": "npm run test -w backend",
+    "test:e2e": "npm run test -w e2e",
+    "lint": "npm run lint -w frontend"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  }
+}
